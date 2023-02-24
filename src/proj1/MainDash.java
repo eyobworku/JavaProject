@@ -8,14 +8,42 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainDash {
 
     @FXML
     private Label accountLable;
+
+    @FXML
+    private Button userBtId;
+
+    @FXML
+    private BorderPane borderPane;
+
+    @FXML
+    private VBox centerVB;
     
+    @FXML
+    void bookBtClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Book.fxml"));
+        Parent bookVb = loader.load();
+        centerVB.getChildren().removeAll();
+        centerVB.getChildren().setAll(bookVb);
+        BookController book = loader.getController();
+        book.setAddVbox();
+    }
+
+    @FXML
+    void userBtClick(ActionEvent event) throws IOException {
+        Parent userVb = FXMLLoader.load(getClass().getResource("User.fxml"));
+        centerVB.getChildren().removeAll();
+        centerVB.getChildren().setAll(userVb);
+    }
     @FXML
     void logoutClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
@@ -27,7 +55,12 @@ public class MainDash {
         stage.setScene(scene);
         stage.show();
     }
+
     public void setAccountInfo(Account user){
         accountLable.setText(user.getUserName());
+        if(user.getRoll().equals("librerian")){
+            userBtId.setVisible(false);
+            userBtId.setManaged(false);
+        }
     }
 }

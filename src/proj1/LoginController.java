@@ -31,8 +31,9 @@ public class LoginController {
 
     @FXML
     void loginButtonClicked(ActionEvent event) throws IOException {
-        Account logedUser = query.loginUser(nameTF.getText(), passwordTF.getText());
-        String msg;
+        //Account logedUser = query.loginUser(nameTF.getText(), passwordTF.getText());
+        Account logedUser = new Account(1, "test", "null", "librerian");
+        //String msg;
         if(logedUser != null){
             // if(logedUser.getRoll().equals("admin")){
             //     //msg = "You are Admin.";
@@ -45,15 +46,17 @@ public class LoginController {
     
             MainDash mainDash = loader.getController();
             mainDash.setAccountInfo(logedUser);
+            //mainDash.userBtId.setVisible(false);
     
             Scene scene = new Scene(root,700,500);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     
             stage.setScene(scene);
             stage.show();
-        }else {
-            msg = "Login error.";
-            msgLable.setText(msg);
         }
+        //else {
+        //     msg = "Login error.";
+        //     msgLable.setText(msg);
+        // }
     }
 }
