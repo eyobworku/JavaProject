@@ -11,35 +11,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.MemberController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.BorrowController">
    <children>
-      <TableView fx:id="memberTable" layoutX="271.0" layoutY="41.0" prefHeight="361.0" prefWidth="290.0" stylesheets="@../css/dashboardDesign.css.css">
+      <TableView fx:id="borrowedTable" layoutX="264.0" layoutY="41.0" prefHeight="322.0" prefWidth="273.0" stylesheets="@../css/dashboardDesign.css.css">
         <columns>
-            <TableColumn fx:id="memberIdCol" prefWidth="63.0" text="BookID" />
-            <TableColumn fx:id="memberNameCol" prefWidth="90.0" text="MemberID" />
-          <TableColumn fx:id="phoneCol" prefWidth="134.0" text="Status" />
+            <TableColumn fx:id="borrowIdCol" prefWidth="63.0" text="Borow ID" />
+            <TableColumn fx:id="bookIdcol" prefWidth="93.0" text="Book ID" />
+            <TableColumn fx:id="memberIdCol" prefWidth="135.0" text="Member ID" />
         </columns>
       </TableView>
-      <VBox fx:id="viewMemberVB" layoutX="14.0" layoutY="41.0" prefHeight="361.0" prefWidth="207.0" stylesheets="@../css/dashboardDesign.css.css">
+      <VBox fx:id="viewMemberVB" layoutX="14.0" layoutY="41.0" prefHeight="260.0" prefWidth="210.0" stylesheets="@../css/dashboardDesign.css.css" visible="false">
          <children>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="207.0">
                <children>
-                  <TextField fx:id="viewNameTF" prefHeight="30.0" prefWidth="150.0" promptText="memberName" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <TextField fx:id="returnBookIdTF" prefHeight="30.0" prefWidth="150.0" promptText="Enter Book Id" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="207.0">
                <children>
-                  <TextField fx:id="viewPhoneTF" prefHeight="30.0" prefWidth="150.0" promptText="bookName" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="126.0" prefHeight="58.0" prefWidth="207.0">
-               <children>
-                  <TextField fx:id="viewEmailTF" prefHeight="30.0" prefWidth="150.0" promptText="PhoneNo." styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <TextField fx:id="returnMemberIdTF" prefHeight="30.0" prefWidth="150.0" promptText="Enter Member Id" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#viewEditClicked" prefHeight="38.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Return" />
+                  <Button mnemonicParsing="false" onAction="#returnBookClicked" prefHeight="38.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Return" />
                </children>
             </HBox>
          </children>
@@ -48,11 +43,11 @@
             <String fx:value="shadow" />
          </styleClass>
       </VBox>
-      <VBox fx:id="addNewMemberVB" layoutX="46.0" layoutY="41.0" prefHeight="275.0" prefWidth="176.0" visible="false">
+      <VBox fx:id="borrowBookVB" layoutX="46.0" layoutY="41.0" prefHeight="275.0" prefWidth="176.0">
          <children>
             <HBox alignment="CENTER" prefWidth="200.0">
                <children>
-                  <Label text="Add New Member">
+                  <Label text="Borrow Book">
                      <font>
                         <Font name="FontAwesome Regular" size="15.0" />
                      </font></Label>
@@ -60,26 +55,21 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="176.0">
                <children>
-                  <TextField fx:id="addUsernameTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Fullname" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <TextField fx:id="borrBookId" prefHeight="24.0" prefWidth="149.0" promptText="Enter Bookid" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="176.0">
                <children>
-                  <TextField fx:id="addPhoneTF" prefHeight="25.0" prefWidth="149.0" promptText="Enter Phoneno" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <TextField fx:id="borrowMemberId" prefHeight="25.0" prefWidth="149.0" promptText="Enter Member" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="185.0" spacing="10.0">
                <children>
-                  <TextField fx:id="addEmailTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Email" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="127.0" prefHeight="53.0" prefWidth="185.0" spacing="15.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#addClicked" prefHeight="26.0" prefWidth="58.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#addResetClick" styleClass="clear-btn" stylesheets="@../css/dashboardDesign.css.css" text="Reset" />
+                  <Button mnemonicParsing="false" onAction="#borrowClicked" prefHeight="26.0" prefWidth="84.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Borrow" />
                </children>
             </HBox>
          </children>
       </VBox>
+      <Button layoutX="311.0" layoutY="390.0" mnemonicParsing="false" onAction="#borrowBookViewClick" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Borrow Book" />
    </children>
 </AnchorPane>

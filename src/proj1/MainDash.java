@@ -20,13 +20,26 @@ public class MainDash {
     private Label accountLable;
 
     @FXML
-    private Button userBtId;
+    public Button userBtId;
 
     @FXML
     private BorderPane borderPane;
 
     @FXML
     private VBox centerVB;
+
+    @FXML
+    private Label bookNoTF;
+
+    @FXML
+    private Label customerNoTF;
+
+    @FXML
+    void borrowedClick(ActionEvent event) throws IOException {
+        Parent borrowVb = FXMLLoader.load(getClass().getResource("borrow.fxml"));
+        centerVB.getChildren().removeAll();
+        centerVB.getChildren().setAll(borrowVb);
+    }
     
     @FXML
     void bookBtClick(ActionEvent event) throws IOException {
@@ -80,8 +93,8 @@ public class MainDash {
     public void setAccountInfo(Account user){
         accountLable.setText(user.getUserName());
         if(user.getRoll().equals("librerian")){
-            userBtId.setVisible(false);
-            userBtId.setManaged(false);
+            // userBtId.setVisible(false);
+            // userBtId.setManaged(false);
         }
     }
 }

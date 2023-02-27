@@ -30,9 +30,9 @@ public class LoginController {
     private Label msgLable;
 
     @FXML
-    void loginButtonClicked(ActionEvent event) throws IOException {
-        //Account logedUser = query.loginUser(nameTF.getText(), passwordTF.getText());
-        Account logedUser = new Account(1, "test", "null","0909123", "admin");
+    void loginButtonClicked(ActionEvent event) throws NullPointerException, IOException {
+        Account logedUser = query.loginUser(nameTF.getText(), passwordTF.getText());
+        //Account logedUser = new Account(1, "test", "null","0909123", "admin");
         //String msg;
         if(logedUser != null){
             // if(logedUser.getRoll().equals("admin")){
@@ -44,8 +44,8 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainDash.fxml"));
             Parent root = loader.load();
     
-            MainDash mainDash = loader.getController();
-            mainDash.setAccountInfo(logedUser);
+            //MainDash mainDash = loader.getController();
+            //mainDash.setAccountInfo(logedUser);
             //mainDash.userBtId.setVisible(false);
     
             Scene scene = new Scene(root,1000,700);

@@ -6,7 +6,7 @@ import java.util.List;
 public class Queries {
     private static final String URL="jdbc:mysql://localhost/project";
     private static final String User="root";
-    private static final String Password="hayder1112";
+    private static final String Password="pass";
     private Connection connection;
     private PreparedStatement loginUserQuery;
     private PreparedStatement selectAllUser;
@@ -19,7 +19,9 @@ public class Queries {
     private PreparedStatement addMemberQuery;
     private PreparedStatement editMemberQuery;
     private PreparedStatement getAllMemberQuery;
-
+    private CallableStatement borrowBookQuery;
+    private CallableStatement returnBookQuery;
+    private PreparedStatement getAllBorrowedQuery;
     Queries()  {
         try{
             connection= DriverManager.getConnection(URL,User,Password);
@@ -35,9 +37,34 @@ public class Queries {
             addMemberQuery=connection.prepareStatement("INSERT INTO members(fullName,phoneNo,email) VALUES (?,?,?);");
             editMemberQuery=connection.prepareStatement("update members set fullName=?, phoneNo=?, email=? where mbId = ?;");
             getAllMemberQuery=connection.prepareStatement("SELECT * FROM members");
+            borrowBookQuery=connection.prepareCall("call borrow_book(?,?);");
+            returnBookQuery=connection.prepareCall("call return_book(?);");
+            getAllBorrowedQuery=connection.prepareStatement("SELECT * FROM borrows where statusOf='pending';");
 
         }catch (SQLException ex){
             ex.printStackTrace();
+        }
+    }
+    public int borrowBook(int bookid,int mebid){
+        try {
+            borrowBookQuery.setInt(1, bookid);
+            borrowBookQuery.setInt(2, mebid);
+            int result = borrowBookQuery.executeUpdate();
+            return result;
+        } catch (SQLException ex){
+                // ex.printStackTrace();
+                return 0;
+        }
+    }
+
+    public int returnBook(int borrowId){
+        try {
+            returnBookQuery.setInt(1, borrowId);
+            int result = returnBookQuery.executeUpdate();
+            return result;
+        } catch (SQLException ex){
+                // ex.printStackTrace();
+                return 0;
         }
     }
     public Account loginUser(String userName,String passWord){
@@ -73,6 +100,25 @@ public class Queries {
                     resultSet.getString("password"),
                     resultSet.getString("phoneNo"),
                     resultSet.getString("roll")
+                ));
+            }
+            return results;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Borrow> getAllBorrow(){
+        try(ResultSet resultSet= getAllBorrowedQuery.executeQuery("SELECT * FROM borrows where statusOf='pending';")){
+            List<Borrow> results=new ArrayList<>();
+            while (resultSet.next()){
+                results.add(new Borrow (
+                    Integer.parseInt(resultSet.getString("borrowId")),
+                    Integer.parseInt(resultSet.getString("bookId")),
+                    Integer.parseInt(resultSet.getString("mbId")),
+                    resultSet.getString("statusOf")
                 ));
             }
             return results;
