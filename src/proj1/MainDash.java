@@ -1,6 +1,7 @@
 package proj1;
 
 import java.io.IOException;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +12,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainDash {
+    Queries queries = new Queries();
 
+    @FXML
+    private HBox accountHbox;
+    
     @FXML
     private Label accountLable;
 
@@ -93,8 +99,15 @@ public class MainDash {
     public void setAccountInfo(Account user){
         accountLable.setText(user.getUserName());
         if(user.getRoll().equals("librerian")){
-            // userBtId.setVisible(false);
-            // userBtId.setManaged(false);
+            accountHbox.setVisible(false);
+            accountHbox.setManaged(false);
         }
+        List<Member> membList = queries.getAllMember();
+        int memNo = membList.size();
+        customerNoTF.setText(String.valueOf(memNo));
+
+        List<Book> bookList = queries.getAllBook();
+        int bookNo = bookList.size();
+        bookNoTF.setText(String.valueOf(bookNo));
     }
 }

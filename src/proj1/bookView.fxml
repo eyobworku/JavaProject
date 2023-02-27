@@ -53,7 +53,11 @@
                   </TextField>
                   <TextField fx:id="datePicker" layoutX="94.0" layoutY="264.0" prefWidth="125.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                   <TextField fx:id="memberIdTF" layoutX="94.0" layoutY="231.0" prefWidth="125.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
-                  <AnchorPane layoutX="-86.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane layoutX="34.0" layoutY="-1.0" prefHeight="183.0" prefWidth="125.0">
+                     <children>
+                        <ImageView fx:id="myBookIV" fitHeight="183.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
                </children></AnchorPane>
             <AnchorPane layoutX="255.0" layoutY="7.0" prefHeight="269.0" prefWidth="539.0">
                <children>
@@ -66,15 +70,6 @@
                         <TableColumn fx:id="quantityCol" prefWidth="104.6666259765625" text="Quantity" />
                     </columns>
                   </TableView>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="45.0" layoutY="17.0" prefHeight="166.0" prefWidth="157.0" stylesheets="@../css/dashboardDesign.css.css">
-               <styleClass>
-                  <String fx:value="white-bg" />
-                  <String fx:value="shadow" />
-               </styleClass>
-               <children>
-                  <ImageView fx:id="myBookIV" fitHeight="166.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <Label layoutX="24.0" layoutY="203.0" text="BookId">
