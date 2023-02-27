@@ -12,7 +12,6 @@
             <ToggleButtonGroup selectionType="SINGLE">
                 <toggles>
                     <ToggleButton onAction="#addBtClick" selected="true" text="Add" />
-                    <ToggleButton onAction="#searchBtClick" text="Search" />
                     <ToggleButton onAction="#viewBtClick" text="View" />
                 </toggles>
             </ToggleButtonGroup>

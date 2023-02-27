@@ -15,17 +15,20 @@ public class BookController {
     
     @FXML
     void addBtClick(ActionEvent event) throws IOException {
-        Parent bookAddVb = FXMLLoader.load(getClass().getResource("bookAdd.fxml"));
+        //Parent bookAddVb = FXMLLoader.load(getClass().getResource("bookAdd.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("bookAdd.fxml"));
+        Parent bookAddVb = loader.load();
         booxLowerVbox.getChildren().removeAll();
         booxLowerVbox.getChildren().setAll(bookAddVb);
+
     }
 
-    @FXML
-    void searchBtClick(ActionEvent event) throws IOException {
-        Parent bookSearchVb = FXMLLoader.load(getClass().getResource("bookSearch.fxml"));
-        booxLowerVbox.getChildren().removeAll();
-        booxLowerVbox.getChildren().setAll(bookSearchVb);
-    }
+    // @FXML
+    // void searchBtClick(ActionEvent event) throws IOException {
+    //     Parent bookSearchVb = FXMLLoader.load(getClass().getResource("bookSearch.fxml"));
+    //     booxLowerVbox.getChildren().removeAll();
+    //     booxLowerVbox.getChildren().setAll(bookSearchVb);
+    // }
 
     @FXML
     void viewBtClick(ActionEvent event) throws IOException {

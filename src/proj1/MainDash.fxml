@@ -20,7 +20,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#bookBtClick" text="Book" />
             <Button fx:id="userBtId" mnemonicParsing="false" onAction="#userBtClick" text="User" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onAction="#memberClicked" text="Member" />
          </children>
       </VBox>
    </left>

@@ -4,12 +4,14 @@ public class Account {
     private int id;
     private String userName;
     private String password;
+    private String phoneNo;
     private String roll;
 
-    public Account(int id, String userName, String password, String roll) {
+    public Account(int id, String userName, String password, String phoneNo,String roll) {
         this.id = id;
         this.userName = userName;
         this.password = password;
+        this.phoneNo = phoneNo;
         this.roll = roll;
     }
 
@@ -43,6 +45,14 @@ public class Account {
 
     public void setRoll(String roll) {
         this.roll = roll;
+    }
+
+    public String getPhoneNo() {
+        return this.phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     @Override

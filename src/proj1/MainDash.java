@@ -40,9 +40,16 @@ public class MainDash {
 
     @FXML
     void userBtClick(ActionEvent event) throws IOException {
-        Parent userVb = FXMLLoader.load(getClass().getResource("User.fxml"));
+        Parent userVb = FXMLLoader.load(getClass().getResource("account.fxml"));
         centerVB.getChildren().removeAll();
         centerVB.getChildren().setAll(userVb);
+    }
+
+    @FXML
+    void memberClicked(ActionEvent event) throws IOException {
+        Parent memberVb = FXMLLoader.load(getClass().getResource("Member.fxml"));
+        centerVB.getChildren().removeAll();
+        centerVB.getChildren().setAll(memberVb);
     }
     @FXML
     void logoutClicked(ActionEvent event) throws IOException {

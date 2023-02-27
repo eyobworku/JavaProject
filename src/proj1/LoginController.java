@@ -15,7 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class LoginController {
-    LoginQuery query = new LoginQuery();
+    Queries query = new Queries();
 
     @FXML
     private TextField nameTF;
@@ -32,7 +32,7 @@ public class LoginController {
     @FXML
     void loginButtonClicked(ActionEvent event) throws IOException {
         //Account logedUser = query.loginUser(nameTF.getText(), passwordTF.getText());
-        Account logedUser = new Account(1, "test", "null", "librerian");
+        Account logedUser = new Account(1, "test", "null","0909123", "admin");
         //String msg;
         if(logedUser != null){
             // if(logedUser.getRoll().equals("admin")){
@@ -48,7 +48,7 @@ public class LoginController {
             mainDash.setAccountInfo(logedUser);
             //mainDash.userBtId.setVisible(false);
     
-            Scene scene = new Scene(root,700,500);
+            Scene scene = new Scene(root,1000,700);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     
             stage.setScene(scene);
