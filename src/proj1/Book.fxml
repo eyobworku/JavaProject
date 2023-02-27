@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.BookController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.BookController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0">
          <children>
-            <ToggleButtonGroup selectionType="SINGLE">
+            <ToggleButtonGroup prefHeight="63.0" prefWidth="81.0" selectionType="SINGLE">
                 <toggles>
-                    <ToggleButton onAction="#addBtClick" selected="true" text="Add" />
-                    <ToggleButton onAction="#viewBtClick" text="View" />
+                    <ToggleButton onAction="#addBtClick" prefHeight="30.0" prefWidth="70.0" selected="true" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Add" />
+                    <ToggleButton onAction="#viewBtClick" prefHeight="81.0" prefWidth="70.0" styleClass="update-btn" stylesheets="@../css/dashboardDesign.css.css" text="View" />
                 </toggles>
             </ToggleButtonGroup>
          </children>
       </HBox>
-      <VBox fx:id="booxLowerVbox" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+      <VBox fx:id="booxLowerVbox" prefHeight="500.0" prefWidth="800.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

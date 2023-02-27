@@ -11,36 +11,32 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.AccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.AccountController">
    <children>
-      <TableView fx:id="userTable" layoutX="251.0" layoutY="47.0" prefHeight="200.0" prefWidth="304.0">
+      <TableView fx:id="userTable" layoutX="232.0" layoutY="45.0" prefHeight="300.0" prefWidth="456.0" stylesheets="@../css/dashboardDesign.css.css">
         <columns>
-            <TableColumn fx:id="usernameCol" prefWidth="75.0" text="Username" />
-          <TableColumn fx:id="passwordCol" prefWidth="75.0" text="Password" />
-          <TableColumn fx:id="phoneCol" prefWidth="75.0" text="Phone No" />
-            <TableColumn fx:id="rollCol" prefWidth="75.0" text="Roll" />
+            <TableColumn fx:id="usernameCol" prefWidth="104.0" text="Username" />
+          <TableColumn fx:id="passwordCol" prefWidth="126.0" text="Password" />
+          <TableColumn fx:id="phoneCol" prefWidth="129.0" text="Phone No" />
+            <TableColumn fx:id="rollCol" prefWidth="95.0" text="Roll" />
         </columns>
       </TableView>
-      <HBox layoutX="246.0" layoutY="316.0" prefHeight="61.0" prefWidth="304.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#addUserClicked" text="Add Users" />
-         </children>
-      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="246.0" layoutY="316.0" prefHeight="61.0" prefWidth="304.0" />
       <VBox fx:id="viewUserVB" layoutX="31.0" layoutY="42.0" prefHeight="305.0" prefWidth="207.0">
          <children>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="viewUsernameTF" />
+                  <TextField fx:id="viewUsernameTF" prefHeight="30.0" prefWidth="150.0" promptText="userName" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="viewPasswordTF" />
+                  <TextField fx:id="viewPasswordTF" prefHeight="30.0" prefWidth="150.0" promptText="passWord" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField fx:id="viewPhoneTF" />
+                  <TextField fx:id="viewPhoneTF" prefHeight="30.0" prefWidth="150.0" promptText="phoneNo." styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -55,8 +51,8 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#viewDeleteClicked" text="Delete" />
-                  <Button mnemonicParsing="false" onAction="#viewEditClicked" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#viewDeleteClicked" prefHeight="30.0" prefWidth="71.0" styleClass="delete-btn" stylesheets="@../css/dashboardDesign.css.css" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#viewEditClicked" prefHeight="30.0" prefWidth="72.0" styleClass="update-btn" stylesheets="@../css/dashboardDesign.css.css" text="Edit" />
                </children>
             </HBox>
          </children>
@@ -101,5 +97,6 @@
             </HBox>
          </children>
       </VBox>
+      <Button layoutX="329.0" layoutY="382.0" mnemonicParsing="false" onAction="#addUserClicked" prefHeight="30.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Add Users" />
    </children>
 </AnchorPane>

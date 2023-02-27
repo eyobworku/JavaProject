@@ -3,41 +3,61 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.bookView">
    <children>
-      <Label text="View book">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="303.0" promptText="Search">
+      <HBox alignment="BOTTOM_CENTER" prefHeight="45.0" prefWidth="800.0">
+         <children>
+            <TextField fx:id="searchTF" prefHeight="30.0" prefWidth="303.0" promptText="Search">
+               <styleClass>
+                  <String fx:value="search" />
+                  <String fx:value="search" />
+               </styleClass>
+               <HBox.margin>
+                  <Insets left="45.0" />
+               </HBox.margin>
+            </TextField>
+            <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Lib%20icons/search.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
          <VBox.margin>
-            <Insets left="20.0" right="20.0" />
+            <Insets />
          </VBox.margin>
-         <styleClass>
-            <String fx:value="search" />
-            <String fx:value="search" />
-         </styleClass></TextField>
+      </HBox>
       <AnchorPane prefHeight="403.0" prefWidth="800.0">
          <children>
-            <AnchorPane layoutX="7.0" layoutY="4.0" prefHeight="402.0" prefWidth="230.0">
+            <AnchorPane layoutX="19.0" layoutY="2.0" prefHeight="402.0" prefWidth="230.0">
                <children>
-                  <DatePicker fx:id="datePicker" layoutX="81.0" layoutY="266.0" prefHeight="25.0" prefWidth="139.0" />
-                  <Button layoutX="67.0" layoutY="313.0" mnemonicParsing="false" onAction="#borrowClicked" prefHeight="25.0" prefWidth="118.0" text="Borrow" />
+                  <Button layoutX="98.0" layoutY="312.0" mnemonicParsing="false" onAction="#borrowClicked" prefHeight="25.0" prefWidth="118.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Borrow" />
+                  <TextField fx:id="bookIdTF" layoutX="94.0" layoutY="201.0" prefWidth="125.0" stylesheets="@../css/dashboardDesign.css.css">
+                     <styleClass>
+                        <String fx:value="textfield" />
+                        <String fx:value="textfield" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="datePicker" layoutX="94.0" layoutY="264.0" prefWidth="125.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <TextField fx:id="memberIdTF" layoutX="94.0" layoutY="231.0" prefWidth="125.0" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
+                  <AnchorPane layoutX="-86.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
                </children></AnchorPane>
             <AnchorPane layoutX="255.0" layoutY="7.0" prefHeight="269.0" prefWidth="539.0">
                <children>
-                  <TableView fx:id="bookTable" layoutY="-1.0" prefHeight="307.0" prefWidth="543.0">
+                  <TableView fx:id="bookTable" layoutY="-1.0" prefHeight="307.0" prefWidth="543.0" stylesheets="@../css/dashboardDesign.css.css">
                     <columns>
                       <TableColumn fx:id="bookIdCol" prefWidth="50.0" text="BookId" />
                       <TableColumn fx:id="bookNameCol" prefWidth="150.0" text="Book Name" />
@@ -48,13 +68,13 @@
                   </TableView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="45.0" layoutY="17.0" prefHeight="166.0" prefWidth="157.0">
+            <AnchorPane layoutX="45.0" layoutY="17.0" prefHeight="166.0" prefWidth="157.0" stylesheets="@../css/dashboardDesign.css.css">
                <styleClass>
                   <String fx:value="white-bg" />
                   <String fx:value="shadow" />
                </styleClass>
                <children>
-                  <ImageView fx:id="myBookIV" fitHeight="172.0" fitWidth="179.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="myBookIV" fitHeight="166.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
             <Label layoutX="24.0" layoutY="203.0" text="BookId">
@@ -62,13 +82,11 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="bookIdTF" layoutX="81.0" layoutY="201.0" prefWidth="125.0" styleClass="textfield" />
             <Label layoutX="24.0" layoutY="235.0" text="Member id">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="memberIdTF" layoutX="109.0" layoutY="233.0" prefWidth="125.0" styleClass="textfield" />
             <Label layoutX="24.0" layoutY="269.0" text="Date">
                <font>
                   <Font size="15.0" />

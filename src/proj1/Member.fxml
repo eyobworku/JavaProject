@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,71 +9,79 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.MemberController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj1.MemberController">
    <children>
-      <TableView fx:id="memberTable" layoutX="225.0" layoutY="41.0" prefHeight="228.0" prefWidth="368.0">
+      <TableView fx:id="memberTable" layoutX="255.0" layoutY="41.0" prefHeight="293.0" prefWidth="426.0" stylesheets="@../css/dashboardDesign.css.css">
         <columns>
             <TableColumn fx:id="memberIdCol" prefWidth="40.0" text="Id" />
-            <TableColumn fx:id="memberNameCol" prefWidth="88.0" text="Fullname" />
-          <TableColumn fx:id="phoneCol" prefWidth="125.0" text="Phone No" />
-          <TableColumn fx:id="emailCol" prefWidth="114.0" text="Email" />
+            <TableColumn fx:id="memberNameCol" prefWidth="149.0" text="Fullname" />
+          <TableColumn fx:id="phoneCol" minWidth="0.0" prefWidth="125.0" text="Phone No" />
+          <TableColumn fx:id="emailCol" minWidth="6.0" prefWidth="124.0" text="Email" />
         </columns>
       </TableView>
-      <VBox fx:id="viewMemberVB" layoutX="31.0" layoutY="42.0" prefHeight="286.0" prefWidth="207.0" visible="false">
+      <VBox fx:id="viewMemberVB" layoutX="14.0" layoutY="41.0" prefHeight="361.0" prefWidth="207.0" stylesheets="@../css/dashboardDesign.css.css">
          <children>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="207.0">
                <children>
-                  <TextField fx:id="viewNameTF" prefHeight="25.0" prefWidth="149.0" promptText="FullName" />
+                  <TextField fx:id="viewNameTF" prefHeight="30.0" prefWidth="150.0" promptText="FullName" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="207.0">
                <children>
-                  <TextField fx:id="viewPhoneTF" prefHeight="25.0" prefWidth="149.0" promptText="PhoneNo." />
+                  <TextField fx:id="viewPhoneTF" prefHeight="30.0" prefWidth="150.0" promptText="PhoneNo." styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="126.0" prefHeight="58.0" prefWidth="207.0">
                <children>
-                  <TextField fx:id="viewEmailTF" prefHeight="25.0" prefWidth="149.0" promptText="Email" />
+                  <TextField fx:id="viewEmailTF" prefHeight="30.0" prefWidth="150.0" promptText="Email" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="207.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#viewEditClicked" prefHeight="25.0" prefWidth="59.0" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#viewEditClicked" prefHeight="38.0" prefWidth="80.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Edit" />
                </children>
             </HBox>
          </children>
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+         </styleClass>
       </VBox>
-      <VBox fx:id="addNewMemberVB" layoutX="46.0" layoutY="41.0" prefHeight="275.0" prefWidth="176.0">
+      <VBox fx:id="addNewMemberVB" layoutX="46.0" layoutY="41.0" prefHeight="275.0" prefWidth="176.0" visible="false">
          <children>
             <HBox alignment="CENTER" prefWidth="200.0">
                <children>
-                  <Label text="Add New Member" />
+                  <Label text="Add New Member">
+                     <font>
+                        <Font name="FontAwesome Regular" size="15.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="176.0">
                <children>
-                  <TextField fx:id="addUsernameTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Fullname" />
+                  <TextField fx:id="addUsernameTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Fullname" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="176.0">
                <children>
-                  <TextField fx:id="addPhoneTF" prefHeight="25.0" prefWidth="149.0" promptText="Enter Phoneno" />
+                  <TextField fx:id="addPhoneTF" prefHeight="25.0" prefWidth="149.0" promptText="Enter Phoneno" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="185.0" spacing="10.0">
                <children>
-                  <TextField fx:id="addEmailTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Email" />
+                  <TextField fx:id="addEmailTF" prefHeight="24.0" prefWidth="149.0" promptText="Enter Email" styleClass="textfield" stylesheets="@../css/dashboardDesign.css.css" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="127.0" prefHeight="53.0" prefWidth="185.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addClicked" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#addResetClick" text="Reset" />
+                  <Button mnemonicParsing="false" onAction="#addClicked" prefHeight="26.0" prefWidth="58.0" styleClass="add-btn" stylesheets="@../css/dashboardDesign.css.css" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#addResetClick" styleClass="clear-btn" stylesheets="@../css/dashboardDesign.css.css" text="Reset" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="238.0" layoutY="316.0" mnemonicParsing="false" onAction="#addMemberClicked" text="Add Member" />
+      <Button layoutX="264.0" layoutY="352.0" mnemonicParsing="false" onAction="#addMemberClicked" prefHeight="38.0" prefWidth="105.0" styleClass="update-btn" stylesheets="@../css/dashboardDesign.css.css" text="Add Member" />
    </children>
 </AnchorPane>

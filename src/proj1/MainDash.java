@@ -63,6 +63,20 @@ public class MainDash {
         stage.show();
     }
 
+    @FXML
+    void homeBtClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainDash.fxml"));
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root,905,534);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
     public void setAccountInfo(Account user){
         accountLable.setText(user.getUserName());
         if(user.getRoll().equals("librerian")){

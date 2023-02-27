@@ -6,7 +6,7 @@ import java.util.List;
 public class Queries {
     private static final String URL="jdbc:mysql://localhost/project";
     private static final String User="root";
-    private static final String Password="pass";
+    private static final String Password="hayder1112";
     private Connection connection;
     private PreparedStatement loginUserQuery;
     private PreparedStatement selectAllUser;
